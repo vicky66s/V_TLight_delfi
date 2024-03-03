@@ -1,0 +1,44 @@
+program TrafficLight;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils, Windows;
+
+const
+  RED = 1;
+  YELLOW = 2;
+  GREEN = 3;
+
+var
+  state: Integer;
+
+begin
+  // Initialize the traffic light state
+  state := RED;
+
+  while True do
+  begin
+    // Display the current state of the traffic light
+    case state of
+      RED:
+        begin
+          WriteLn('RED');
+          Sleep(3000); // Red light lasts for 3 seconds
+          state := GREEN;
+        end;
+      GREEN:
+        begin
+          WriteLn('GREEN');
+          Sleep(5000); // Green light lasts for 5 seconds
+          state := YELLOW;
+        end;
+      YELLOW:
+        begin
+          WriteLn('YELLOW');
+          Sleep(2000); // Yellow light lasts for 2 seconds
+          state := RED;
+        end;
+    end;
+  end;
+end.
